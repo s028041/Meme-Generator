@@ -60,6 +60,7 @@ class MemeGenerator extends Component {
             onChange={this.handleChange}
           />
           <input
+            className="meme-font"
             type="number"
             max="120"
             value={this.state.fontSize}

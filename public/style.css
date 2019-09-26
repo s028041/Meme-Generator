@@ -171,4 +171,7 @@ header > p {
   .meme-form > input::placeholder {
     font-size: 1em;
   }
+  .meme-font {
+    display: none;
+  }
 }
