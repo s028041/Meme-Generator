@@ -6,11 +6,19 @@ class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
-      randomImg: "http://i.imgflip.com/1bij.jpg",
-      allMemeImgs: []
+      randomImg: "https://i.imgflip.com/1bgw.jpg",
+      allMemeImgs: [],
+      fontSize: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeSize = this.changeSize.bind(this);
+  }
+  //Choose font size
+  changeSize(event) {
+    this.setState({
+      fontSize: event.target.value
+    });
   }
 
   componentDidMount() {
@@ -51,13 +59,28 @@ class MemeGenerator extends Component {
             value={this.state.bottomText}
             onChange={this.handleChange}
           />
+          <input
+            type="number"
+            max="120"
+            value={this.state.fontSize}
+            onChange={this.changeSize}
+            placeholder="Font Size"
+          ></input>
 
           <button>Generate</button>
+          <br />
         </form>
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
-          <h2 className="top">{this.state.topText}</h2>
-          <h2 className="bottom">{this.state.bottomText}</h2>
+          <h2 className="top" style={{ fontSize: this.state.fontSize + "px" }}>
+            {this.state.topText}
+          </h2>
+          <h2
+            className="bottom"
+            style={{ fontSize: this.state.fontSize + "px" }}
+          >
+            {this.state.bottomText}
+          </h2>
         </div>
       </div>
     );

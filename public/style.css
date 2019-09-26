@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -14,19 +16,14 @@ header {
   background: #6441a5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #2a0845,
-    #6441a5
+    #d1cbd6,
+    #c2dde6
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #2a0845,
-    #6441a5
+    #c2dde6
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-header > img {
-  height: 80%;
-  margin-left: 10%;
 }
 
 header > p {
@@ -38,12 +35,16 @@ header > p {
 
 .meme {
   position: relative;
-  width: 90%;
+  max-width: 100%;
   margin: auto;
 }
 
 .meme > img {
   width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .meme > h2 {
@@ -80,8 +81,9 @@ header > p {
 }
 
 .meme-form > input {
-  width: 45%;
+  width: 25%;
   height: 40px;
+  column-gap: 2px;
 }
 
 .meme-form > button {
@@ -90,7 +92,13 @@ header > p {
   font-size: 25px;
   letter-spacing: 1.5px;
   color: white;
-  background: #6441a5;
+  background: #4a7280;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+}
+.meme-form > button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .meme-form > input::-webkit-input-placeholder {
@@ -116,4 +124,51 @@ header > p {
   font-family: VT323, monospace;
   font-size: 25px;
   text-align: cen;
+}
+@media screen and (max-width: 600px) {
+  header {
+    display: none;
+    height: 100px;
+
+    align-items: center;
+    background: #6441a5; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #d1cbd6,
+      #2f1b55
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #2a0845,
+      #6441a5
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .meme-form > input {
+    width: 30%;
+    height: 30px;
+    margin: 1px;
+  }
+  .meme-form > button {
+    border: none;
+    font-family: VT323, monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: white;
+    padding: 2px;
+    background: #4a7280;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    margin: 1px;
+  }
+  header > p {
+    font-family: VT323, monospace;
+    color: whitesmoke;
+    font-size: 30px;
+    margin-left: 60px;
+    display: none;
+  }
+  .meme-form > input::placeholder {
+    font-size: 1em;
+  }
 }
