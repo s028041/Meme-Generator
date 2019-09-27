@@ -8,18 +8,16 @@ class MemeGenerator extends Component {
       bottomText: "",
       randomImg: "https://i.imgflip.com/1bgw.jpg",
       allMemeImgs: [],
-      fontSize: ""
+      fontSize: 50
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.changeSize = this.changeSize.bind(this);
   }
+
   //Choose font size
-  changeSize(event) {
+  changeSize = event => {
     this.setState({
       fontSize: event.target.value
     });
-  }
+  };
 
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
@@ -30,16 +28,17 @@ class MemeGenerator extends Component {
       });
   }
 
-  handleChange(event) {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
-  handleSubmit(event) {
+  };
+
+  handleSubmit = event => {
     event.preventDefault();
     const randNum = Math.floor(Math.random() * this.state.allMemeImgs.length);
     const randMemeImg = this.state.allMemeImgs[randNum].url;
     this.setState({ randomImg: randMemeImg });
-  }
+  };
 
   render() {
     return (
@@ -62,6 +61,7 @@ class MemeGenerator extends Component {
           <input
             className="meme-font"
             type="number"
+            min="50"
             max="120"
             value={this.state.fontSize}
             onChange={this.changeSize}

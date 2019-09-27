@@ -170,6 +170,7 @@ header > p {
   }
   .meme-form > input::placeholder {
     font-size: 1em;
+    font-family: sans-serif;
   }
   .meme-font {
     display: none;
